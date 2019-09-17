@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import cookie from "react-cookies";
-import Signup from "./Containers/Signup";
-import Signin from "./Containers/Signin";
-import Dashboard from "./Containers/Dashboard";
-import ForgotPassword from "./Containers/ForgotPassword";
-import ResetPassword from "./Containers/ResetPassword";
+import Signup from "./Components/Signup";
+import Signin from "./Components/Signin";
+import Dashboard from "./Components/Dashboard";
+import ForgotPassword from "./Components/ForgotPassword";
+import ResetPassword from "./Components/ResetPassword";
+import RenderForm from "./Components/RenderForm";
 
 class Routes extends Component {
   constructor(props) {
@@ -40,13 +41,24 @@ class Routes extends Component {
         exact: true,
         component: Dashboard,
         title: "dashboard",
-      }
+      },
+      {
+        path: "/forms",
+        exact: true,
+        component: RenderForm,
+        title: "renderForm",
+      },
     ];
   }
 
   isAllowed = (props, RouteComponent, title) => {
     if (this.isCurrentUser()) {
-      if (title !== "login" && title !== "register" && title !=="forgotPassword" && title !== "resetPassword") {
+      if (
+        title !== "login" &&
+        title !== "register" &&
+        title !== "forgotPassword" &&
+        title !== "resetPassword"
+      ) {
         return <RouteComponent {...props} />;
       }
     } else {
@@ -60,11 +72,11 @@ class Routes extends Component {
         return <ResetPassword {...props} />;
       } else if (
         title !== "login" &&
-        title !== "signup"&&
-        title !== "forgotPassword"&&
+        title !== "signup" &&
+        title !== "forgotPassword" &&
         title !== "resetPassword"
       ) {
-        return <Redirect to="/login" />
+        return <Redirect to="/login" />;
       }
     }
   };
