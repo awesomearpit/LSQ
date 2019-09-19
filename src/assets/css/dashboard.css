@@ -1,0 +1,36 @@
+.dropdown-menu{
+    left: -80px !important;
+}
+
+.activity-box{
+    border: 1px solid #dee2e6;
+    box-shadow: 9px 11px 11px 1px #f3f3f3;
+    border-radius:5px;
+    margin: 100px 0 100px 0;
+}
+
+.dropdown-toggle::after {
+    border:0 !important;
+}
+
+.lsq-external-form-container .tab-content{
+    overflow:visible !important;
+}
+
+.tab-content.mx-custom > .active{
+    max-height: auto !important;
+    overflow-y:visible !important;
+}
+
+.modal-header {
+    border-bottom: 1px solid #e0e0e0!important;
+    background-color: #17a2b8 !important;
+}
+
+.popup-header{
+    background-color: transparent !important;
+}
+
+.popup-header > h3{
+    color: #fff !important;
+}

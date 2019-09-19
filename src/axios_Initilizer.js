@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SERVICE_URL, AUTH_KEY } from "./Utils/Constants";
+import { SERVICE_URL, AUTH_KEY } from "./utils/Constants";
 
 const axiosInitializer = {
   config: () => {

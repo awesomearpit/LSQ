@@ -6,6 +6,10 @@ export const headerConfig = {
   "Content-Type": "application/json",
 };
 
+export const activityPayload = {
+  Parameter: { ActivityEvent: 212 },
+};
+
 export const register = async signupData => {
   return await axios.post(
     `/api/Authentication/Register?accessKey=${ACCESS_KEY}&secretKey=${SECRET_KEY}`,
@@ -23,6 +27,7 @@ export const signIn = async loginData => {
 
 export const logout = async () => {
   await cookie.remove("AuthKey", { path: "/" });
+  await cookie.remove("LeadId", { path: "/" });
 };
 
 export const post = async (basePath, data) => {
@@ -31,4 +36,8 @@ export const post = async (basePath, data) => {
 
 export const get = async basePath => {
   return await axios.get(`${basePath}`);
+};
+
+export const activityPost = async basePath => {
+  return await axios.post(`${basePath}`, activityPayload);
 };

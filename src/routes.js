@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import cookie from "react-cookies";
-import Signup from "./Components/Signup";
-import Signin from "./Components/Signin";
-import Dashboard from "./Components/Dashboard";
-import ForgotPassword from "./Components/ForgotPassword";
-import ResetPassword from "./Components/ResetPassword";
-import RenderForm from "./Components/RenderForm";
+import Signup from "./components/Signup";
+import Signin from "./components/Signin";
+import Dashboard from "./components/Dashboard";
+import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
+import RenderForm from "./components/RenderForm";
 
 class Routes extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class Routes extends Component {
         title: "dashboard",
       },
       {
-        path: "/forms",
+        path: "/form",
         exact: true,
         component: RenderForm,
         title: "renderForm",
@@ -61,6 +61,7 @@ class Routes extends Component {
       ) {
         return <RouteComponent {...props} />;
       }
+      return <Redirect to="/dashboard" />;
     } else {
       if (title === "login") {
         return <Signin {...props} />;

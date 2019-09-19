@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import "../styles.css";
 import cookie from "react-cookies";
-import { signIn } from "../Utils/API";
+import { signIn } from "../utils/API";
 import { ToastContainer, toast } from "react-toastify";
-import { validateEmail } from "../Utils/Validation";
+import { validateEmail } from "../utils/Validation";
 
 class Signin extends Component {
   constructor(props) {
@@ -63,10 +63,7 @@ class Signin extends Component {
       <>
         <ToastContainer position={toast.POSITION.TOP_RIGHT} />
         <div className="card bg-light">
-          <article
-            className="card-body mx-auto"
-            style={{ "max-width": "400px" }}
-          >
+          <article className="card-body mx-auto" style={{ maxWidth: "400px" }}>
             <h4 className="card-title mt-3 text-center">Login</h4>
             <div className="form-group input-group">
               <div className="input-group-prepend">

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import "../styles.css";
-import { register } from "../Utils/API";
+import { register } from "../utils/API";
 import {
   checkPassword,
   validateName,
   validateEmail,
   validateMobile,
-} from "../Utils/Validation";
+} from "../utils/Validation";
 import { ToastContainer, toast } from "react-toastify";
 
 class Signup extends Component {
@@ -118,10 +118,7 @@ class Signup extends Component {
       <>
         <ToastContainer position={toast.POSITION.TOP_RIGHT} />
         <div className="card bg-light">
-          <article
-            className="card-body mx-auto"
-            style={{ "max-width": "400px" }}
-          >
+          <article className="card-body mx-auto" style={{ maxWidth: "400px" }}>
             <h4 className="card-title mt-3 text-center">Create Account</h4>
             <div className="form-group input-group">
               <div className="input-group-prepend">
