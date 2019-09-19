@@ -34,10 +34,10 @@ class Signin extends Component {
 
       try {
         const { data } = await signIn(loginData);
-        console.log("data login", data);
         cookie.save("AuthKey", data.AuthKey, { path: "/" });
         cookie.save("LeadId", data.LeadId, { path: "/" });
         this.props.history.push("/dashboard");
+        window.location.reload();
       } catch (e) {
         toast.error(e.response.data.ExceptionMessage);
       }
