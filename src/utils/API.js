@@ -7,7 +7,7 @@ export const headerConfig = {
 };
 
 export const activityPayload = {
-  Parameter: { ActivityEvent: 212 },
+  Parameter: { ActivityEvent: 200 },
 };
 
 export const register = async signupData => {

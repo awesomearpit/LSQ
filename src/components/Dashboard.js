@@ -19,7 +19,7 @@ class Dashboard extends Component {
       const { data } = await activityPost(
         `https://api-in21.leadsquared.com/v2/ProspectActivity.svc/Retrieve?accessKey=${ACCESS_KEY}&secretKey=${SECRET_KEY}&leadId=${LEAD_ID}`
       );
-      console.log("data", data.RecordCount);
+      console.log("data", data);
       let dataActivity = data.ProspectActivities.map(
         item => item["ActivityFields"]
       );
@@ -47,8 +47,7 @@ class Dashboard extends Component {
             <table className="table">
               <thead>
                 <tr>
-                  <th scope="col">Application Id</th>
-                  <th scope="col">Creation Time</th>
+                  <th scope="col">Car Name</th>
                   <th scope="col">Status</th>
                 </tr>
               </thead>
@@ -84,7 +83,6 @@ const DataTable = props => {
         return (
           <tr key={index}>
             <th scope="row">{activity.mx_Custom_1}</th>
-            <td>{activity.mx_Custom_3}</td>
             <td>{activity.Status}</td>
           </tr>
         );

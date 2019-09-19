@@ -63,7 +63,7 @@ class Signup extends Component {
       };
       try {
         const { data } = await register(signupData);
-        toast.success("User Created", { autoClose: 2000 });
+        toast.success(data.Message, { autoClose: 2000 });
         setTimeout(() => this.props.history.push("/login"), 3000);
       } catch (e) {
         toast.error(e.response.data.ExceptionMessage);
