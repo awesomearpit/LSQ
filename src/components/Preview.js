@@ -135,7 +135,7 @@ export default Preview;
 const DataLoader = props => {
   return (
     <div style={{ marginTop: "200px", textAlign: "center" }}>
-      <Loader type="Grid" color="#212529" height={100} width={100} />
+      <Loader type="ThreeDots" color="#212529" height={100} width={100} />
     </div>
   );
 };
