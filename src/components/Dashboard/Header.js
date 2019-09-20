@@ -37,7 +37,7 @@ class Header extends Component {
               title={`Welcome ${this.state.displayName}`}
               id="basic-nav-dropdown"
             >
-              <NavDropdown.Item href="#action/3.1">Preview</NavDropdown.Item>
+              <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={this.props.logout}>
                 Logout

@@ -1,6 +1,7 @@
 import cookie from "react-cookies";
 
 export const AUTH_KEY = cookie.load("PublicAuthKey");
+// export const AUTH_KEY = window.sessionStorage.getItem('PublicAuthKey');
 export const LEAD_ID = cookie.load("LeadId");
 export const PRIVATE_AUTH_KEY = cookie.load("AuthKey");
 export const SERVICE_URL = "https://portalapi-in21.leadsquared.com";

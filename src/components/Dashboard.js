@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { logout, post, activityPost, get } from "../utils/API";
 import { ACCESS_KEY, SECRET_KEY, LEAD_ID } from "../utils/Constants";
 import Header from "./Dashboard/Header";
+import Loader from "react-loader-spinner";
 
 class Dashboard extends Component {
   constructor(props) {
@@ -11,10 +12,12 @@ class Dashboard extends Component {
       allActivity: [],
       recordCount: "",
       leadsInfo: {},
+      isLoading: false,
     };
   }
 
   async componentDidMount() {
+    this.setState({ isLoading: true });
     try {
       const { data } = await activityPost(
         `https://api-in21.leadsquared.com/v2/ProspectActivity.svc/Retrieve?accessKey=${ACCESS_KEY}&secretKey=${SECRET_KEY}&leadId=${LEAD_ID}`
@@ -27,6 +30,7 @@ class Dashboard extends Component {
       this.setState({
         allActivity: dataActivity,
         recordCount: data.RecordCount,
+        isLoading: false,
       });
     } catch (e) {
       console.log("error", e);
@@ -52,10 +56,10 @@ class Dashboard extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.state.recordCount == 0 ? (
-                  <NoDataTable />
+                {this.state.isLoading ? (
+                  <DataLoader />
                 ) : (
-                  <DataTable allActivity={this.state.allActivity} />
+                  <Data state={this.state} />
                 )}
               </tbody>
             </table>
@@ -71,7 +75,9 @@ export default withRouter(Dashboard);
 const NoDataTable = props => {
   return (
     <tr>
-      <th scope="row">There is No Data Available</th>
+      <th colspan="2" className="text-center">
+        There is No Data Available
+      </th>
     </tr>
   );
 };
@@ -88,5 +94,27 @@ const DataTable = props => {
         );
       })}
     </>
+  );
+};
+
+const Data = props => {
+  return (
+    <>
+      {props.state.recordCount == 0 ? (
+        <NoDataTable />
+      ) : (
+        <DataTable allActivity={props.state.allActivity} />
+      )}
+    </>
+  );
+};
+
+const DataLoader = props => {
+  return (
+    <tr>
+      <th colspan="2" className="text-center">
+        <Loader type="ThreeDots" color="#212529" height={50} width={50} />
+      </th>
+    </tr>
   );
 };

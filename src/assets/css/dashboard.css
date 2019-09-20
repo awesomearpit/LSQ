@@ -18,8 +18,8 @@
 }
 
 .tab-content.mx-custom > .active{
-    max-height: 1000px !important;
-    overflow-y:visible !important;
+    max-height: none !important;
+        overflow-y:visible !important;
 }
 
 .modal-header {
@@ -33,4 +33,15 @@
 
 .popup-header > h3{
     color: #fff !important;
+}
+
+.fullScreen-loader{
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+}
+
+.padding-box{
+    padding:15px;
 }

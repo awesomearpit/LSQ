@@ -152,7 +152,7 @@ class Signup extends Component {
                 name="mobileNo"
                 className="form-control"
                 placeholder="Mobile Number"
-                type="text"
+                type="tel"
                 value={mobileNo}
                 onChange={this.changeHandler}
               />

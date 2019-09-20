@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
-import Loader from "react-loader-spinner";
 import Header from "./Dashboard/Header";
 import { logout } from "../utils/API";
 import { FORM_ID, PRIVATE_AUTH_KEY, LEAD_ID } from "../utils/Constants";
@@ -11,10 +10,11 @@ class RenderForm extends Component {
   }
 
   loadOverrideCSS = () => {
-    var applicationId = (this.lsqFormContainer.querySelector(
+    this.lsqFormContainer.querySelector(
       ".lsq-form-action-back"
-    ).innerHTML = `<i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a style=color:white href="/dashboard">Back</a>`);
-    console.log("applicationId", applicationId);
+    ).innerHTML = `<i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a style=color:white href="/dashboard">Back</a>`;
+    this.lsqFormContainer.querySelector(".lsq-form-action-btn").textContent =
+      "Next";
   };
 
   componentDidMount() {

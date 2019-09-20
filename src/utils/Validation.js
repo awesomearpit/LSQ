@@ -1,6 +1,6 @@
 export const checkPassword = sPassword => {
   if (sPassword) {
-    let regPassword = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    let regPassword = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
     if (!sPassword.match(regPassword)) {
       // return "Password has to be at least 8 chars long including one small, one capital and one special character";
       return "Min 8 characters with at least one number";

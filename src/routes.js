@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard";
 import ForgotPassword from "./components/ForgotPassword";
 import ResetPassword from "./components/ResetPassword";
 import RenderForm from "./components/RenderForm";
+import Preview from "./components/Preview";
 
 class Routes extends Component {
   constructor(props) {
@@ -47,6 +48,12 @@ class Routes extends Component {
         exact: true,
         component: RenderForm,
         title: "renderForm",
+      },
+      {
+        path: "/profile",
+        exact: true,
+        component: Preview,
+        title: "profile",
       },
     ];
   }
